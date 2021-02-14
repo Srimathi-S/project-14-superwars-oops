@@ -29,6 +29,7 @@ class Player {
         this.id=id;
         this.name=name;
         this.type=type;
+        this.image="images/super-"+(this.id+1)+".png";
         this.strength=this.getRandomStrength()
 
     }
@@ -50,13 +51,13 @@ class Player {
         playerName.innerHTML=this.name;
         player.appendChild(playerName);
         let playerImage=document.createElement("img");
-        playerImage.src="images/super-"+(this.id+1)+".png";
+        playerImage.src=this.image;
         player.appendChild(playerImage);
         let playerstrength=document.createElement("div");
         playerName.className="strength";
         playerName.innerHTML=this.strength;
         player.appendChild(playerName);
-        //document.body.appendChild(player);
+        player.setAttribute("data-id",this.id);
         return player;
     }
 }
@@ -72,7 +73,7 @@ class Superwar {
     players.map((player)=>{
         var id=PLAYERS.indexOf(player)
         this.players.push(new Player(id,player,type));
-        if(type=="hero")type="villan";
+        if(type=="hero")type="villain";
         else type="hero";
     });
 
