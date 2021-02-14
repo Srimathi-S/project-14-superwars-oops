@@ -207,7 +207,7 @@ describe("Setting up Super War", function () {
       let fragment = superWar.buildPlayers('hero');
       let fragmentHTML = document.createElement('div');
       fragmentHTML.append(fragment);
-
+      console.log(superWar.players);
       expect(fragmentHTML.children[0].innerHTML).toBe(expectedFragment.innerHTML);
     })
   });
